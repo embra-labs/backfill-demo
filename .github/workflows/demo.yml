@@ -1,0 +1,25 @@
+name: Demo checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  postgres:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Crash, resume, and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./demo.sh 2>&1 | tee demo.log
+      - name: Save execution log
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: backfill-demo-log
+          path: demo.log
+          retention-days: 14
