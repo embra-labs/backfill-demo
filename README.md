@@ -8,6 +8,8 @@ The verifier checks every row. Two deliberately broken variants show it detectin
 
 Companion to Embra's engineering article: [Backfill 8 triệu dòng: dữ liệu đúng, nhưng latency không đạt](https://embra.cloud/engineering/backfill-8m/) (Vietnamese). **This is a new 1,000-row teaching fixture, not a reproduction of that eight-million-row benchmark or Embra's production executor.**
 
+Built as part of [Embra](https://embra.cloud/), app and PostgreSQL hosting in development for developers and small teams in Vietnam. [Meet the builder and see the product direction](https://embra.cloud/#nguoi-lam). You can run this example independently of the unreleased product.
+
 ## Run it
 
 Requirements: Docker with Compose v2 or newer, Bash, and a Linux/macOS host (Windows: WSL2). The first run downloads PostgreSQL, Python, and the pinned Python dependency.
